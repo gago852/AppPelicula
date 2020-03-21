@@ -8,12 +8,20 @@ import com.google.android.material.snackbar.Snackbar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import android.util.Log;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
+
+    Spinner spinnerGeneros;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,6 +29,23 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        spinnerGeneros = findViewById(R.id.idSpinnerGeneros);
+
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this
+                , R.array.spinner_generos, R.layout.support_simple_spinner_dropdown_item);
+        spinnerGeneros.setAdapter(adapter);
+        spinnerGeneros.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                Toast.makeText(getApplicationContext(), parent.getItemAtPosition(position).toString(), Toast.LENGTH_LONG).show();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
 
 
     }
@@ -39,12 +64,12 @@ public class MainActivity extends AppCompatActivity {
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
-        switch (id){
+        switch (id) {
             case R.id.action_mayuscula:
-                Toast.makeText(getApplicationContext(),"mayuscula",Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), "mayuscula", Toast.LENGTH_LONG).show();
                 break;
             case R.id.action_listado:
-                Toast.makeText(getApplicationContext(),"listado",Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), "listado", Toast.LENGTH_LONG).show();
                 break;
         }
 

@@ -14,10 +14,6 @@
     <string name="espanol">Español</string>
     <string name="ingles">Ingles</string>
     <string name="genero">Genero</string>
-    <string name="genero_accion">Accion</string>
-    <string name="genero_suspenso">Suspenso</string>
-    <string name="genero_drama">Drama</string>
-    <string name="genero_comedia">Comedia</string>
     <string name="guardar">Guardar</string>
     <string name="Cancelar">Cancelar</string>
 </resources>

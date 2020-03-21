@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="spinner_generos">
+        <item>Accion</item>
+        <item>Suspenso</item>
+        <item>Drama</item>
+        <item>Comedia</item>
+    </string-array>
+</resources>
