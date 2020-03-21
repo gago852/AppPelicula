@@ -5,8 +5,23 @@
     tools:context="com.gago.apppelicula.ListadoActivity">
 
     <item
-        android:id="@+id/action_settings"
+        android:id="@+id/action_ordenar_genero"
         android:orderInCategory="100"
-        android:title="@string/action_settings"
+        android:title="@string/action_ordenar_genero"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/action_orderar_nombre"
+        android:orderInCategory="100"
+        android:title="@string/action_ordenar_nombre"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/action_invertir"
+        android:orderInCategory="100"
+        android:title="@string/action_invertir"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/action_eliminar_primero"
+        android:orderInCategory="100"
+        android:title="@string/action_eliminar_primero"
         app:showAsAction="never" />
 </menu>

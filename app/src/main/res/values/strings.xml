@@ -1,12 +1,23 @@
 <resources>
-    <string name="app_name">AppPelicula</string>
-    <string name="action_settings">Settings</string>
-    <!-- Strings used for fragments for navigation -->
-    <string name="first_fragment_label">First Fragment</string>
-    <string name="second_fragment_label">Second Fragment</string>
-    <string name="next">Next</string>
-    <string name="previous">Previous</string>
-
-    <string name="hello_first_fragment">Hello first fragment</string>
-    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <string name="app_name">App Pelicula</string>
+    <string name="action_mayuscula">Mayuscula</string>
+    <string name="action_listado">Listado</string>
+    <!-- textos menus -->
+    <string name="action_ordenar_genero">Ordenar por genero</string>
+    <string name="action_ordenar_nombre">Ordenar A-Z por nombre</string>
+    <string name="action_invertir">Invertir lista</string>
+    <string name="action_eliminar_primero">Eliminar la primera</string>
+    <!-- texto formulario -->
+    <string name="nombre_pelicula">Nombre de la pelicula</string>
+    <string name="director">Director</string>
+    <string name="idioma">Idioma</string>
+    <string name="espanol">Español</string>
+    <string name="ingles">Ingles</string>
+    <string name="genero">Genero</string>
+    <string name="genero_accion">Accion</string>
+    <string name="genero_suspenso">Suspenso</string>
+    <string name="genero_drama">Drama</string>
+    <string name="genero_comedia">Comedia</string>
+    <string name="guardar">Guardar</string>
+    <string name="Cancelar">Cancelar</string>
 </resources>
