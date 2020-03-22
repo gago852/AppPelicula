@@ -6,10 +6,12 @@
         android:id="@+id/action_mayuscula"
         android:orderInCategory="100"
         android:title="@string/action_mayuscula"
+        android:icon="@drawable/ic_action_mayuscula"
         app:showAsAction="never" />
     <item
         android:id="@+id/action_listado"
         android:orderInCategory="100"
         android:title="@string/action_listado"
+        android:icon="@drawable/ic_action_listado"
         app:showAsAction="never" />
 </menu>
