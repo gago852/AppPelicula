@@ -1,6 +1,8 @@
 package com.gago.apppelicula;
 
+import android.view.ContextMenu;
 import android.view.LayoutInflater;
+import android.view.Menu;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
@@ -37,7 +39,7 @@ public class PeliculaAdapter extends RecyclerView.Adapter<PeliculaAdapter.ViewHo
         return listaPeliculas.size();
     }
 
-    public class ViewHolderPelicula extends RecyclerView.ViewHolder {
+    public class ViewHolderPelicula extends RecyclerView.ViewHolder implements View.OnCreateContextMenuListener {
 
         TextView txtNombre, txtDirector, txtGenero;
 
@@ -46,6 +48,16 @@ public class PeliculaAdapter extends RecyclerView.Adapter<PeliculaAdapter.ViewHo
             txtNombre = itemView.findViewById(R.id.idtxtNombre);
             txtDirector = itemView.findViewById(R.id.idtxtDirector);
             txtGenero = itemView.findViewById(R.id.idtxtGenero);
+            itemView.setOnCreateContextMenuListener(this);
+        }
+
+        @Override
+        public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
+            menu.setHeaderTitle("Cambiar colores de texto");
+            menu.add(this.getAdapterPosition(), v.getId(), Menu.NONE, "Rojo");
+            menu.add(this.getAdapterPosition(), v.getId(), Menu.NONE, "Azul");
+            menu.add(this.getAdapterPosition(), v.getId(), Menu.NONE, "Verde");
+            menu.add(this.getAdapterPosition(), v.getId(), Menu.NONE, "Amarrillo");
         }
     }
 }

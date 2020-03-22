@@ -1,16 +1,20 @@
 package com.gago.apppelicula;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.Activity;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -37,6 +41,34 @@ public class ListadoActivity extends AppCompatActivity {
         recyclerViewPeliculas.setAdapter(peliculaAdapter);
 
 
+    }
+
+    @Override
+    public boolean onContextItemSelected(@NonNull MenuItem item) {
+        TextView txtnombre;
+        switch (item.getGroupId()){
+            case 1:
+                 txtnombre= findViewById(item.getItemId());
+                txtnombre.setTextColor(Color.RED);
+                break;
+            case 2:
+                 txtnombre= findViewById(item.getItemId());
+                txtnombre.setTextColor(Color.BLUE);
+                break;
+            case 3:
+                 txtnombre= findViewById(item.getItemId());
+                txtnombre.setTextColor(Color.GREEN);
+                break;
+            case 4:
+                 txtnombre= findViewById(item.getItemId());
+                txtnombre.setTextColor(Color.YELLOW);
+                break;
+        }
+
+
+
+
+        return super.onContextItemSelected(item);
     }
 
     @Override
@@ -94,10 +126,23 @@ public class ListadoActivity extends AppCompatActivity {
                 recyclerViewPeliculas.setAdapter(peliculaAdapter);
                 break;
             case R.id.action_eliminar_primero:
-                listaPeliculas.remove(0);
-                peliculaAdapter = new PeliculaAdapter(listaPeliculas);
-                recyclerViewPeliculas.setAdapter(peliculaAdapter);
-                Toast.makeText(getApplicationContext(), "Eliminado", Toast.LENGTH_SHORT).show();
+                AlertDialog.Builder builder = new AlertDialog.Builder(ListadoActivity.this);
+                builder.setMessage("Desea eliminar una pelicula?")
+                        .setPositiveButton("YES", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                listaPeliculas.remove(0);
+                                PeliculaAdapter peliculaAdapter = new PeliculaAdapter(listaPeliculas);
+                                recyclerViewPeliculas.setAdapter(peliculaAdapter);
+                                Toast.makeText(getApplicationContext(), "Eliminado", Toast.LENGTH_SHORT).show();
+                            }
+                        })
+                        .setNegativeButton("NO", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                dialog.cancel();
+                            }
+                        });
+                AlertDialog alerta = builder.create();
+                alerta.show();
                 break;
             case android.R.id.home:
                 Intent i = new Intent(this, MainActivity.class);

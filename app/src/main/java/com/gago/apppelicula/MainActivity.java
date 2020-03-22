@@ -1,11 +1,13 @@
 package com.gago.apppelicula;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 
 import com.google.android.material.textfield.TextInputEditText;
 
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
@@ -75,23 +77,40 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.idBtGuardar:
-                String idioma;
-                switch (radioGroup.getCheckedRadioButtonId()) {
-                    case R.id.idRbEspanol:
-                        idioma = getString(R.string.espanol);
-                        break;
-                    case R.id.idRbIngles:
-                        idioma = getString(R.string.ingles);
-                        break;
-                    default:
-                        idioma = getString(R.string.espanol);
-                        break;
-                }
-                Pelicula pelicula = new Pelicula(edNombre.getText().toString(), edDirector.getText().toString(), idioma, genero);
-                peliculaArrayList.add(pelicula);
-                edNombre.setText("");
-                edDirector.setText("");
-                Toast.makeText(getApplicationContext(), "Guardado", Toast.LENGTH_SHORT).show();
+
+                AlertDialog.Builder builder = new AlertDialog.Builder(this);
+                builder.setMessage("Desea agregar esta pelicula?").setPositiveButton("YES", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        String idioma;
+                        switch (radioGroup.getCheckedRadioButtonId()) {
+                            case R.id.idRbEspanol:
+                                idioma = getString(R.string.espanol);
+                                break;
+                            case R.id.idRbIngles:
+                                idioma = getString(R.string.ingles);
+                                break;
+                            default:
+                                idioma = getString(R.string.espanol);
+                                break;
+                        }
+                        Pelicula pelicula = new Pelicula(edNombre.getText().toString(), edDirector.getText().toString(), idioma, genero);
+                        peliculaArrayList.add(pelicula);
+                        edNombre.setText("");
+                        edDirector.setText("");
+                        Toast.makeText(getApplicationContext(), "Guardado", Toast.LENGTH_SHORT).show();
+                    }
+                }).setNegativeButton("NO", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.cancel();
+                    }
+                });
+                AlertDialog alertDialog = builder.create();
+                alertDialog.show();
+
+
+
                 break;
             case R.id.idBtCancelar:
                 edNombre.setText("");
