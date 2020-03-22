@@ -21,7 +21,7 @@ public class PeliculaAdapter extends RecyclerView.Adapter<PeliculaAdapter.ViewHo
     @NonNull
     @Override
     public PeliculaAdapter.ViewHolderPelicula onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view= LayoutInflater.from(parent.getContext()).inflate(R.layout.lista_pelicula_layout,null,false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.lista_pelicula_layout, null, false);
         return new ViewHolderPelicula(view);
     }
 
@@ -37,7 +37,7 @@ public class PeliculaAdapter extends RecyclerView.Adapter<PeliculaAdapter.ViewHo
         return listaPeliculas.size();
     }
 
-    public class ViewHolderPelicula extends RecyclerView.ViewHolder{
+    public class ViewHolderPelicula extends RecyclerView.ViewHolder {
 
         TextView txtNombre, txtDirector, txtGenero;
 
