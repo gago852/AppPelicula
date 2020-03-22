@@ -14,6 +14,8 @@ import android.view.MenuItem;
 import android.widget.Toast;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 
 public class ListadoActivity extends AppCompatActivity {
 
@@ -51,19 +53,51 @@ public class ListadoActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         int id = item.getItemId();
+        PeliculaAdapter peliculaAdapter;
 
         switch (id) {
             case R.id.action_ordenar_genero:
-                Toast.makeText(getApplicationContext(), "genero", Toast.LENGTH_SHORT).show();
+                Collections.sort(listaPeliculas, new Comparator<Pelicula>() {
+                    @Override
+                    public int compare(Pelicula o1, Pelicula o2) {
+                        if (o1.getGenero().compareTo(o2.getGenero()) < 0) {
+                            return -1;
+                        }
+                        if (o1.getGenero().compareTo(o2.getGenero()) > 0) {
+                            return 1;
+                        }
+                        return 0;
+                    }
+                });
+                peliculaAdapter = new PeliculaAdapter(listaPeliculas);
+                recyclerViewPeliculas.setAdapter(peliculaAdapter);
                 break;
             case R.id.action_orderar_nombre:
-                Toast.makeText(getApplicationContext(), "nombre", Toast.LENGTH_SHORT).show();
+                Collections.sort(listaPeliculas, new Comparator<Pelicula>() {
+                    @Override
+                    public int compare(Pelicula o1, Pelicula o2) {
+                        if (o1.getNombre().compareTo(o2.getNombre()) < 0) {
+                            return -1;
+                        }
+                        if (o1.getNombre().compareTo(o2.getNombre()) > 0) {
+                            return 1;
+                        }
+                        return 0;
+                    }
+                });
+                peliculaAdapter = new PeliculaAdapter(listaPeliculas);
+                recyclerViewPeliculas.setAdapter(peliculaAdapter);
                 break;
             case R.id.action_invertir:
-                Toast.makeText(getApplicationContext(), "invertir", Toast.LENGTH_SHORT).show();
+                Collections.reverse(listaPeliculas);
+                peliculaAdapter = new PeliculaAdapter(listaPeliculas);
+                recyclerViewPeliculas.setAdapter(peliculaAdapter);
                 break;
             case R.id.action_eliminar_primero:
-                Toast.makeText(getApplicationContext(), "eliminar", Toast.LENGTH_SHORT).show();
+                listaPeliculas.remove(0);
+                peliculaAdapter = new PeliculaAdapter(listaPeliculas);
+                recyclerViewPeliculas.setAdapter(peliculaAdapter);
+                Toast.makeText(getApplicationContext(), "Eliminado", Toast.LENGTH_SHORT).show();
                 break;
             case android.R.id.home:
                 Intent i = new Intent(this, MainActivity.class);

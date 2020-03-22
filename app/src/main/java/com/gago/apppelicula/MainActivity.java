@@ -91,6 +91,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 peliculaArrayList.add(pelicula);
                 edNombre.setText("");
                 edDirector.setText("");
+                Toast.makeText(getApplicationContext(), "Guardado", Toast.LENGTH_SHORT).show();
                 break;
             case R.id.idBtCancelar:
                 edNombre.setText("");
