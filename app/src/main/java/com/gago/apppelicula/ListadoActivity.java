@@ -46,28 +46,24 @@ public class ListadoActivity extends AppCompatActivity {
     @Override
     public boolean onContextItemSelected(@NonNull MenuItem item) {
         TextView txtnombre;
-        switch (item.getGroupId()){
+        switch (item.getItemId()) {
             case 1:
-                 txtnombre= findViewById(item.getItemId());
+                txtnombre = findViewById(R.id.idtxtNombre);
                 txtnombre.setTextColor(Color.RED);
                 break;
             case 2:
-                 txtnombre= findViewById(item.getItemId());
+                txtnombre = findViewById(R.id.idtxtNombre);
                 txtnombre.setTextColor(Color.BLUE);
                 break;
             case 3:
-                 txtnombre= findViewById(item.getItemId());
+                txtnombre = findViewById(R.id.idtxtNombre);
                 txtnombre.setTextColor(Color.GREEN);
                 break;
             case 4:
-                 txtnombre= findViewById(item.getItemId());
+                txtnombre = findViewById(R.id.idtxtNombre);
                 txtnombre.setTextColor(Color.YELLOW);
                 break;
         }
-
-
-
-
         return super.onContextItemSelected(item);
     }
 

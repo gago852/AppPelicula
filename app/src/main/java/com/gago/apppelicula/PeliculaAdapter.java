@@ -54,10 +54,10 @@ public class PeliculaAdapter extends RecyclerView.Adapter<PeliculaAdapter.ViewHo
         @Override
         public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
             menu.setHeaderTitle("Cambiar colores de texto");
-            menu.add(this.getAdapterPosition(), v.getId(), Menu.NONE, "Rojo");
-            menu.add(this.getAdapterPosition(), v.getId(), Menu.NONE, "Azul");
-            menu.add(this.getAdapterPosition(), v.getId(), Menu.NONE, "Verde");
-            menu.add(this.getAdapterPosition(), v.getId(), Menu.NONE, "Amarrillo");
+            menu.add(0, 1, Menu.NONE, "Rojo");
+            menu.add(0, 2, Menu.NONE, "Azul");
+            menu.add(0, 3, Menu.NONE, "Verde");
+            menu.add(0, 4, Menu.NONE, "Amarrillo");
         }
     }
 }

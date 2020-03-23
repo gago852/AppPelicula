@@ -110,7 +110,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 alertDialog.show();
 
 
-
                 break;
             case R.id.idBtCancelar:
                 edNombre.setText("");
