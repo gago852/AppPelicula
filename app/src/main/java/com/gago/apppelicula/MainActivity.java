@@ -1,5 +1,6 @@
 package com.gago.apppelicula;
 
+import android.app.Activity;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
@@ -152,7 +153,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
-        if (requestCode == 5) {
+        if (requestCode == 5 && resultCode == Activity.RESULT_OK) {
             peliculaArrayList = data.getParcelableArrayListExtra("pelis");
 
         }

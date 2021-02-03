@@ -14,6 +14,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.AdapterView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -46,23 +47,22 @@ public class ListadoActivity extends AppCompatActivity {
     @Override
     public boolean onContextItemSelected(@NonNull MenuItem item) {
         TextView txtnombre;
+        AdapterView.AdapterContextMenuInfo menuInfo = (AdapterView.AdapterContextMenuInfo) item.getMenuInfo();
+        Log.i("test", menuInfo.toString());
         switch (item.getItemId()) {
             case 1:
-                txtnombre = findViewById(R.id.idtxtNombre);
+                /*txtnombre = findViewById(R.id.idtxtNombre);
                 txtnombre.setTextColor(Color.RED);
-                break;
+                Log.i("test", menuInfo.position + "");*/
             case 2:
                 txtnombre = findViewById(R.id.idtxtNombre);
                 txtnombre.setTextColor(Color.BLUE);
-                break;
             case 3:
                 txtnombre = findViewById(R.id.idtxtNombre);
                 txtnombre.setTextColor(Color.GREEN);
-                break;
             case 4:
                 txtnombre = findViewById(R.id.idtxtNombre);
                 txtnombre.setTextColor(Color.YELLOW);
-                break;
         }
         return super.onContextItemSelected(item);
     }
